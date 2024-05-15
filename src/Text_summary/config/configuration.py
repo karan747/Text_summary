@@ -1,6 +1,6 @@
 from  Text_summary.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from Text_summary.utils.common import read_yaml,create_directories
-from Text_summary.entity import DataIngestionConfig,DataValidationConfig, DataTransformationConfig
+from Text_summary.entity import DataIngestionConfig,DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
 
 class ConfigurationManager:
     def __init__(self, config_filepath = CONFIG_FILE_PATH, params_filepath = PARAMS_FILE_PATH):
@@ -50,3 +50,28 @@ class ConfigurationManager:
         )
         
         return data_transformation_config
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.Model_trainer
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            #config
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            model_ckpt=config.model_ckpt,
+            ##params
+            num_epochs=self.params.num_epochs,
+            warmup_steps=self.params.warmup_steps,
+            per_device_train_batch_size=self.params.per_device_train_batch_size,
+            weight_decay=self.params.weight_decay,
+            logging_steps=self.params.logging_steps,
+            evaluation_strategy=self.params.evaluation_strategy,
+            eval_steps=self.params.eval_steps,
+            save_steps=self.params.save_steps,
+            gradient_accumulation_steps=self.params.gradient_accumulation_steps
+        )
+
+        return model_trainer_config        
+    
