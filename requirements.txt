@@ -1,5 +1,7 @@
+accelerate>=0.21.0
+transformers[torch]
 transformers 
-sentencepiece
+transformers[sentencepiece]
 datasets
 sacrebleu
 rouge_score
@@ -7,11 +9,11 @@ py7zr
 pandas
 nltk
 tqdm
+torch==2.3.0+cu118
+torchaudio==2.3.0+cu118
+torchvision==0.18.0+cu118
 PyYAML
 matplotlib
-torch==2.3.0
-torchvision==0.18.0
-torchaudio==2.3.0
 notebook
 boto3
 mypy-boto3-s3
@@ -21,5 +23,7 @@ fastapi==0.78.0
 uvicorn==0.18.3
 Jinja2==3.1.2
 protobuf
+nvidia-ml-py3==7.352.0
+
 
 -e .

@@ -38,13 +38,13 @@ except Exception as e:
     logger.error(e)
     raise e
 
-Stage_name = 'Stage_04_model_training'
-try:
-    logger.info(f"-----------------{Stage_name} Started----------------")
-    modeltrainer = ModelTrainingPipeline()
-    modeltrainer.main()
-    logger.info(f"-----------------{Stage_name} Completed----------------")
-except Exception as e:
-    logger.error(f"-----------------{Stage_name} Failed----------------")
-    logger.error(e)
-    raise e
+# Stage_name = 'Stage_04_model_training'
+# try:
+#     logger.info(f"-----------------{Stage_name} Started----------------")
+#     modeltrainer = ModelTrainingPipeline()
+#     modeltrainer.main()
+#     logger.info(f"-----------------{Stage_name} Completed----------------")
+# except Exception as e:
+#     logger.error(f"-----------------{Stage_name} Failed----------------")
+#     logger.error(e)
+#     raise e
